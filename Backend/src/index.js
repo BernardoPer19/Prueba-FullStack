@@ -4,13 +4,15 @@ const morgan = require("morgan");
 const dotenv = require("dotenv");
 const sectorRoutes = require("./routes/sector.routes.js");
 
-
 dotenv.config();
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  })
+);
 app.use(express.json());
 app.use(morgan("dev"));
-
 
 app.use("/sectores", sectorRoutes);
 

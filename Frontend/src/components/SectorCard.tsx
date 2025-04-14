@@ -1,54 +1,33 @@
-import { useEffect, useState } from "react";
-import { crearSector, obtenerSectores } from "../services/api";
+import { useSectores } from "../hooks/useSectores";
 
-const SectorComponent = () => {
-  const [sectores, setSectores] = useState([]);
-  const [nuevoSector, setNuevoSector] = useState('');
+export const SectorTable = () => {
+  const { sectores, loading, error } = useSectores();
 
-  // Obtener sectores al cargar el componente
-  useEffect(() => {
-    const fetchSectores = async () => {
-      try {
-        const sectoresData = await obtenerSectores();
-        setSectores(sectoresData);
-      } catch (error) {
-        console.error('No se pudo obtener los sectores:', error);
-      }
-    };
-    fetchSectores();
-  }, []);
-
-  // Crear un nuevo sector
-  const handleCrearSector = async () => {
-    if (nuevoSector.trim() !== '') {
-      try {
-        const sector = { nombre: nuevoSector };
-        const sectorCreado = await crearSector(sector);
-        setSectores([...sectores, sectorCreado]);
-        setNuevoSector('');
-      } catch (error) {
-        console.error('Error al crear el sector:', error);
-      }
-    }
-  };
+  if (loading) return <p>Cargando sectores...</p>;
+  if (error) return <p className="text-red-500">{error}</p>;
 
   return (
-    <div>
-      <h1>Sectores</h1>
-      <ul>
-        {sectores.map((sector) => (
-          <li key={sector.id}>{sector.nombre}</li>
-        ))}
-      </ul>
-      <input
-        type="text"
-        value={nuevoSector}
-        onChange={(e) => setNuevoSector(e.target.value)}
-        placeholder="Nuevo sector"
-      />
-      <button onClick={handleCrearSector}>Crear Sector</button>
+    <div className="mt-8">
+      <h2 className="text-xl font-semibold mb-2">Sectores registrados</h2>
+      <table className="table-auto w-full border">
+        <thead>
+          <tr className="bg-gray-200">
+            <th className="px-4 py-2">Nombre</th>
+            <th className="px-4 py-2">Dirección</th>
+            <th className="px-4 py-2">Horario</th>
+          </tr>
+        </thead>
+        <tbody>
+          {sectores.map((sector) => (
+            <tr key={sector.id}>
+              <td className="border px-4 py-2">{sector.nombre}</td>
+              <td className="border px-4 py-2">{sector.direccion}</td>
+              <td className="border px-4 py-2">{sector.horario.inicio}</td>
+              <td className="border px-4 py-2">{sector.horario.fin}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
-
-export default SectorComponent;

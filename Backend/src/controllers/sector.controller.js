@@ -3,21 +3,32 @@ const { validarDatosSector } = require("../schema/Sectores.schema.js");
 
 const crearSector = async (req, res) => {
   try {
-    const { nombre, direccion, lat, lng, horario } = req.body;
+    const result = validarDatosSector(req.body);
 
-    const error = validarDatosSector(req.body);
-
-    if (error) {
-      return res.status(400).json({ error });
+    if (!result.valid) {
+      return res.status(400).json({ error: result.errors });
     }
 
+    const { nombre, direccion, lat, lng, horario } = result.data;
+
     const nuevoSector = { nombre, direccion, lat, lng, horario };
+
+    const snapshot = await db
+      .collection("sectores")
+      .where("nombre", "==", nombre)
+      .get();
+
+    if (!snapshot.empty) {
+      return res.status(400).json({
+        error: "Ya existe un sector con ese nombre",
+      });
+    }
 
     await db.collection("sectores").add(nuevoSector);
     res.status(201).json({ mensaje: "Sector creado exitosamente" });
   } catch (error) {
-    console.error('Error al crear sector:', error);
-    res.status(500).json({ error: error.message });
+    console.error("Error al crear sector:", error);
+    res.status(500).json({ error: "Error interno del servidor" });
   }
 };
 
@@ -30,7 +41,7 @@ const obtenerSectores = async (req, res) => {
     }));
     res.json(sectores);
   } catch (error) {
-    console.error('Error al obtener sectores:', error);
+    console.error("Error al obtener sectores:", error);
     res.status(500).json({ error: error.message });
   }
 };
