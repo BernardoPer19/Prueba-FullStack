@@ -1,26 +1,41 @@
-import { db } from '../firebase/config.js';
+const { db } = require("../firebase/config.js");
+const { validarDatosSector } = require("../schema/Sectores.schema.js");
 
-export const crearSector = async (req, res) => {
+const crearSector = async (req, res) => {
   try {
     const { nombre, direccion, lat, lng, horario } = req.body;
-    if (!nombre || !direccion || !lat || !lng || !horario) {
-      return res.status(400).json({ error: 'Datos incompletos' });
+
+    const error = validarDatosSector(req.body);
+
+    if (error) {
+      return res.status(400).json({ error });
     }
 
     const nuevoSector = { nombre, direccion, lat, lng, horario };
-    await db.collection('sectores').add(nuevoSector);
-    res.status(201).json({ mensaje: 'Sector creado exitosamente' });
+
+    await db.collection("sectores").add(nuevoSector);
+    res.status(201).json({ mensaje: "Sector creado exitosamente" });
   } catch (error) {
+    console.error('Error al crear sector:', error);
     res.status(500).json({ error: error.message });
   }
 };
 
-export const obtenerSectores = async (req, res) => {
+const obtenerSectores = async (req, res) => {
   try {
-    const snapshot = await db.collection('sectores').get();
-    const sectores = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    const snapshot = await db.collection("sectores").get();
+    const sectores = snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
     res.json(sectores);
   } catch (error) {
+    console.error('Error al obtener sectores:', error);
     res.status(500).json({ error: error.message });
   }
+};
+
+module.exports = {
+  crearSector,
+  obtenerSectores,
 };

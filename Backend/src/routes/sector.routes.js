@@ -1,9 +1,12 @@
-import { Router } from 'express';
-import { crearSector, obtenerSectores } from '../controllers/sector.controller.js';
+const { Router } = require("express");
+const {
+  crearSector,
+  obtenerSectores,
+} = require("../controllers/sector.controller.js");
 
-const router = Router();
+const sectorRoutes = Router();
 
-router.post('/', crearSector);
-router.get('/', obtenerSectores);
+sectorRoutes.post("/", crearSector);
+sectorRoutes.get("/", obtenerSectores);
 
-export default router;
+module.exports = sectorRoutes;
