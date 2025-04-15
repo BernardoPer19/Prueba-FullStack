@@ -2,6 +2,8 @@ const { db } = require("../firebase/config.js");
 const { validarDatosSector } = require("../schema/Sectores.schema.js");
 
 const crearSector = async (req, res) => {
+  console.log(req.body);
+  
   try {
     const result = validarDatosSector(req.body);
 

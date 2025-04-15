@@ -11,13 +11,13 @@ Aplicación fullstack para registrar zonas con servicio de delivery, consultar s
 _Añade aquí tus screenshots del frontend y funcionalidades_
 
 - 📍 Formulario con autocompletado de direcciones  
-  ![Formulario](./screenshots/formulario.png)
+  ![Formulario](./screenshots/)
 
 - 📊 Tabla con sectores en tiempo real  
-  ![Tabla de sectores](./screenshots/tabla.png)
+  ![Tabla de sectores](./screenshots/677shots_so.png)
 
 - 🌐 Validación de ubicación del usuario  
-  ![Ubicación actual](./screenshots/ubicacion.png)
+  ![Ubicación actual](./screenshots/274shots_so.png)
 
 ---
 

@@ -29,14 +29,14 @@ export const useNominatimAutocomplete = (query: string) => {
         );
 
         const resultados = await Promise.all(fetches);
-        const combinados = resultados.flat();
+        const combinados = resultados.flat(); 
         setResults(combinados);
       } catch (err) {
         console.error("Error al buscar direcciones:", err);
       }
     };
 
-    const timeout = setTimeout(fetchData, 100);
+    const timeout = setTimeout(fetchData, 400);
     return () => clearTimeout(timeout);
   }, [query]);
 

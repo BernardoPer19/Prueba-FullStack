@@ -27,7 +27,7 @@ export const SectorForm = () => {
         reset();
       }
     } catch (error) {
-      console.error("Error completo:", error);
+      console.error("Error completo:", error);   
     }
   };
 
@@ -40,7 +40,7 @@ export const SectorForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="space-y-4 p-4 shadow-lg rounded-xl bg-white"
+      className="space-y-4 p-5 shadow-2xl rounded-xl bg-white w-[600px]"
     >
       <h2 className="text-xl font-semibold">Registrar nuevo sector</h2>
 

@@ -3,11 +3,11 @@ import { ToastContainer } from "react-toastify";
 
 const CrearSector = () => {
   return (
-    <div className="max-w-2xl mx-auto mt-8">
+    <main className="max-w-full mx-auto h-[80vh] flex items-center justify-center ">
       <ToastContainer />
       <SectorForm />
       {/* <VerSectores /> */}
-    </div>
+    </main>
   );
 };
 
