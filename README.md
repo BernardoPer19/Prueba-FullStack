@@ -2,7 +2,7 @@
 
 Aplicación fullstack para registrar zonas con servicio de delivery, consultar sectores activos y validar si un usuario está dentro del rango de cobertura y horario.
 
-⚠️ Aunque Firebase permite acceder directamente desde el frontend, decidí mantener todo el flujo pasando por el backend (GET y POST) para cumplir con la arquitectura fullstack de esta prueba.
+
 
 
 ---
