@@ -143,13 +143,14 @@ Backend/<br>
 ## 🛠️ Instalación y uso
 
 ### Backend (Express)
-```bash
+```
 cd backend
 npm install
 npm run dev
 ```
-```
-### Frontned (React + Vite)```
+
+### Frontned (React + Vite)
+```bash
 cd frontend
 npm install
 npm run dev
