@@ -140,7 +140,6 @@ Backend/<br>
 | Despliegue público                               | ⛔ Pendiente |
 
 ---
-
 ## 🛠️ Instalación y uso
 
 ### Backend (Express)
@@ -148,3 +147,44 @@ Backend/<br>
 cd backend
 npm install
 npm run dev
+```
+```
+### Frontned (React + Vite)```
+cd frontend
+npm install
+npm run dev
+```
+## 🌐 APIs Externas Utilizadas
+
+- **Mapbox Places API**  
+  Utilizada para autocompletado de direcciones reales al registrar un sector.  
+  👉 [https://docs.mapbox.com/api/search/geocoding/](https://docs.mapbox.com/api/search/geocoding/)
+
+- **Firebase Firestore**  
+  Base de datos NoSQL para almacenar los sectores registrados.  
+  👉 [https://firebase.google.com/docs/firestore](https://firebase.google.com/docs/firestore)
+
+---
+
+## 🕐 Funcionalidades Pendientes o en Progreso
+
+- [ ] Filtrar sectores por horario de atención actual
+- [ ] Actualización en tiempo real con WebSockets o Firebase listeners (parcialmente hecho)
+- [ ] Mejorar diseño visual (en progreso)
+- [ ] Documentación completa (este README) con capturas y diagramas
+- [ ] Despliegue en producción (Vercel + Render o Railway)
+
+---
+
+## 👤 Autor
+
+- **Nombre:** Agustín Bernardo Peredo Rodriguez  
+- **Correo:** wawxper08@gmail.com  
+- **Teléfono:** +591 64854829  
+- **Ubicación:** Cochabamba, Bolivia  
+- **LinkedIn:** https://www.linkedin.com/in/bernardo-peredo-50a1552a0/
+
+---
+
+
+
