@@ -1,5 +1,6 @@
 import { ToastContainer } from "react-toastify";
 import { useUbicacion } from "../hooks/useUbicacion";
+import CardUbicaciones from "../components/CardUbicaciones";
 
 export default function ValidarUbicacion() {
   const { sectoresDisponibles, loading, error } = useUbicacion();
@@ -9,7 +10,7 @@ export default function ValidarUbicacion() {
       <ToastContainer />
 
       <h2 className="text-2xl font-bold mb-6 text-blue-700">
-        📍 Zonas cercanas disponibles
+        Zonas cercanas disponibles
       </h2>
 
       {loading ? (
@@ -19,24 +20,7 @@ export default function ValidarUbicacion() {
       ) : sectoresDisponibles.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {sectoresDisponibles.map((s) => (
-            <div
-              key={s.id}
-              className="bg-white shadow-md rounded-xl p-4 border border-gray-200 hover:shadow-lg transition"
-            >
-              <h3 className="text-lg font-semibold text-gray-800 mb-1">
-                {s.nombre}
-              </h3>
-              <p className="text-sm text-gray-600 mb-1">
-                📌 Dirección: {s.direccion}
-              </p>
-              <p className="text-sm text-gray-600 mb-1">
-                🕒 Horario: {s.horario.inicio} - {s.horario.fin}
-              </p>
-              <p className="text-sm text-gray-600">
-                Distancia:
-                <span className="font-semibold">{s.distanciaKm} km</span>
-              </p>
-            </div>
+            <CardUbicaciones s={s} />
           ))}
         </div>
       ) : (

@@ -9,7 +9,7 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/sectores/crear" element={<CrearSector />} />
+        <Route path="/" element={<CrearSector />} />
         <Route path="/sectores" element={<VerSectores />} />
         <Route path="/validar" element={<ValidarUbicacion />} />
       </Routes>

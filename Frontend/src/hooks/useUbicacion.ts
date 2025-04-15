@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { getDistance } from "geolib";
-import { useSectores } from "./useSectores";
 import { toast } from "react-toastify";
 import { type SectorConDistancia } from "../types/FildsTypes";
+import { useSectorContext } from "./useSectorContext";
 
 export const useUbicacion = () => {
-  const { sectores, loading: loadingSectores } = useSectores();
+  const { sectores, loading: loadingSectores } = useSectorContext();
   const [sectoresDisponibles, setSectoresDisponibles] = useState<
     SectorConDistancia[]
   >([]);
@@ -31,6 +31,7 @@ export const useUbicacion = () => {
                 { latitude: Number(s.lat), longitude: Number(s.lng) }
               );
               const distanciaKm = Math.round((distancia / 1000) * 10) / 10;
+
               return { ...s, distanciaKm };
             })
             .filter(
@@ -43,9 +44,9 @@ export const useUbicacion = () => {
           setSectoresDisponibles(disponibles);
           setLoading(false);
           if (disponibles.length > 0) {
-            toast.success("✅ Zonas encontradas cerca de tu ubicación");
+            toast.success("Zonas encontradas cerca de tu ubicación");
           } else {
-            toast.info("No se encontró ninguna zona cerca 😓");
+            toast.info("No se encontró ninguna zona cerca");
           }
         },
         () => {

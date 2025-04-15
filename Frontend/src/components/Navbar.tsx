@@ -7,7 +7,7 @@ function Navbar() {
         <h1 className="text-xl font-bold text-blue-600">Gestor de Sectores</h1>
         <div className="flex gap-6">
           <Link
-            to="/sectores/crear"
+            to="/"
             className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
           >
             Crear Sector
