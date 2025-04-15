@@ -170,9 +170,8 @@ npm run dev
 ## 🕐 Funcionalidades Pendientes o en Progreso
 
 - [ ] Filtrar sectores por horario de atención actual
-- [ ] Actualización en tiempo real con WebSockets o Firebase listeners (parcialmente hecho)
 - [ ] Mejorar diseño visual (en progreso)
-- [ ] Documentación completa (este README) con capturas y diagramas
+- [X] Documentación completa (este README) con capturas y diagramas
 - [ ] Despliegue en producción (Vercel + Render o Railway)
 
 ---
