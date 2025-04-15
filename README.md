@@ -164,10 +164,6 @@ npm run dev
 
 ## 🌐 APIs Externas Utilizadas
 
-- **Mapbox Places API**  
-  Utilizada para autocompletado de direcciones reales al registrar un sector.  
-  👉 [https://docs.mapbox.com/api/search/geocoding/](https://docs.mapbox.com/api/search/geocoding/)
-
 - **Firebase Firestore**  
   Base de datos NoSQL para almacenar los sectores registrados.  
   👉 [https://firebase.google.com/docs/firestore](https://firebase.google.com/docs/firestore)
