@@ -12,3 +12,5 @@ export interface TiposSector {
 
 
 export type NuevoTiposSector = Omit<TiposSector, "id">
+
+type SectorConDistancia = TiposSector & { distanciaKm: number };

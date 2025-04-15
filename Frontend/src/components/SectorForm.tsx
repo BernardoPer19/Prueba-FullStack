@@ -2,6 +2,8 @@ import { useForm } from "react-hook-form";
 import { useSectores } from "../hooks/useSectores";
 import { NuevoTiposSector } from "../types/FildsTypes";
 import { toast } from "react-toastify";
+import { useState } from "react";
+import { useNominatimAutocomplete } from "../hooks/useNominatimAutocomplete ";
 
 export const SectorForm = () => {
   const {
@@ -9,9 +11,13 @@ export const SectorForm = () => {
     handleSubmit,
     formState: { errors },
     watch,
+    setValue,
     reset,
   } = useForm<NuevoTiposSector>();
   const { addSector } = useSectores();
+
+  const [direccionInput, setDireccionInput] = useState("");
+  const sugerencias = useNominatimAutocomplete(direccionInput);
 
   const onSubmit = async (data: NuevoTiposSector) => {
     try {
@@ -42,18 +48,42 @@ export const SectorForm = () => {
         type="text"
         placeholder="Nombre del sector"
         {...register("nombre", { required: "Este campo es obligatorio" })}
-        className="border p-2 w-full"
+        className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
       />
       {errors.nombre && (
         <p className="text-red-500 text-sm">{errors.nombre.message}</p>
       )}
 
-      <input
-        type="text"
-        placeholder="Dirección"
-        {...register("direccion", { required: "Este campo es obligatorio" })}
-        className="border p-2 w-full"
-      />
+      <div className="relative">
+        <input
+          type="text"
+          placeholder="Dirección"
+          value={direccionInput}
+          onChange={(e) => {
+            setDireccionInput(e.target.value);
+          }}
+          className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        />
+        {sugerencias.length > 0 && (
+          <ul className="absolute z-10 bg-white border w-full shadow-md rounded-md mt-1 max-h-40 overflow-y-auto">
+            {sugerencias.map((item, idx) => (
+              <li
+                key={idx}
+                onClick={() => {
+                  setDireccionInput(item.display_name);
+                  setValue("direccion", item.display_name);
+                  setValue("lat", parseFloat(item.lat));
+                  setValue("lng", parseFloat(item.lon));
+                }}
+                className="p-2 cursor-pointer hover:bg-gray-100"
+              >
+                {item.display_name}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
       {errors.direccion && (
         <p className="text-red-500 text-sm">{errors.direccion.message}</p>
       )}
@@ -68,7 +98,7 @@ export const SectorForm = () => {
           min: -90,
           max: 90,
         })}
-        className="border p-2 w-full"
+        className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
       />
       {errors.lat && (
         <p className="text-red-500 text-sm">{errors.lat?.message}</p>
@@ -84,7 +114,7 @@ export const SectorForm = () => {
           min: -180,
           max: 180,
         })}
-        className="border p-2 w-full"
+        className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
       />
       {errors.lng && (
         <p className="text-red-500 text-sm">{errors.lng?.message}</p>
@@ -101,7 +131,7 @@ export const SectorForm = () => {
               message: "Formato incorrecto de hora (HH:MM)",
             },
           })}
-          className="border p-2 w-full"
+          className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
         />
         {errors.horario?.inicio && (
           <p className="text-red-500 text-sm">
@@ -119,7 +149,7 @@ export const SectorForm = () => {
               message: "Formato incorrecto de hora (HH:MM)",
             },
           })}
-          className="border p-2 w-full"
+          className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
         />
         {errors.horario?.fin && (
           <p className="text-red-500 text-sm">{errors.horario.fin?.message}</p>
@@ -134,7 +164,7 @@ export const SectorForm = () => {
 
       <button
         type="submit"
-        className="bg-blue-600 text-white px-4 py-2 rounded-md"
+        className="bg-blue-600 text-white px-4 py-2 rounded-md cursor-pointer hover:bg-blue-500 transition-colors"
       >
         Crear sector
       </button>

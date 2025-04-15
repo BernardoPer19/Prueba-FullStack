@@ -28,7 +28,7 @@ export const useSectores = () => {
     console.log("Datos a enviar al backend:", nuevo);
     try {
       const response = await CrearSectorRequest(nuevo);
-      fetchSectores();
+      await fetchSectores();
       return response;
     } catch (err) {
       if (err instanceof Error) {

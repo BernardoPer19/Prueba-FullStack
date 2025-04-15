@@ -1,4 +1,4 @@
-import { SectorTable } from "../components/SectorCard";
+import { SectorTable } from "../components/SectorTable";
 
 const VerSectores = () => {
   return (

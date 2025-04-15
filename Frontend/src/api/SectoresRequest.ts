@@ -1,8 +1,13 @@
 import axios, { AxiosError } from "axios";
 import handleError from "../services/ErrorService";
 import { type NuevoTiposSector } from "../types/FildsTypes";
+import { toast } from "react-toastify";
+
+
+
 
 export const obtenerSectorRequest = async () => {
+  
   try {
     const response = await axios.get("http://localhost:3000/sectores");
     return response.data;
@@ -22,7 +27,7 @@ export const obtenerSectorRequest = async () => {
 export const CrearSectorRequest = async (nuevo: NuevoTiposSector) => {
   try {
     const response = await axios.post("http://localhost:3000/sectores", nuevo);
-    console.log(response.data);
+    toast.success("Sector creado exitosamente");
     return response.data;
   } catch (error) {
     if (error instanceof AxiosError && error.response) {
