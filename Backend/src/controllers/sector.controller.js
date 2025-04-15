@@ -28,7 +28,7 @@ const crearSector = async (req, res) => {
     res.status(201).json({ mensaje: "Sector creado exitosamente" });
   } catch (error) {
     console.error("Error al crear sector:", error);
-    res.status(500).json({ error: "Error interno del servidor" });
+    res.status(500).json({ error: "Error al crear un nuevo Sector" });
   }
 };
 

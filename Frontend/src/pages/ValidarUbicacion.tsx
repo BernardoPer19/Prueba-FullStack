@@ -16,7 +16,7 @@ export default function ValidarUbicacion() {
       {loading ? (
         <p className="text-gray-500">Cargando ubicación y sectores...</p>
       ) : error ? (
-        <p className="text-red-500">{error}</p>
+        <p className="text-red-500 font-bold text-center">{error}</p>
       ) : sectoresDisponibles.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {sectoresDisponibles.map((s) => (

@@ -6,6 +6,7 @@ import { useSectorContext } from "./useSectorContext";
 
 export const useUbicacion = () => {
   const { sectores, loading: loadingSectores } = useSectorContext();
+
   const [sectoresDisponibles, setSectoresDisponibles] = useState<
     SectorConDistancia[]
   >([]);
@@ -50,7 +51,9 @@ export const useUbicacion = () => {
           }
         },
         () => {
-          setError("No se pudo obtener la ubicación del usuario.");
+          setError(
+            "No se pudo obtener la ubicación del usuario. Verifica la ubicacion del dispositivo por favor"
+          );
           setLoading(false);
         }
       );

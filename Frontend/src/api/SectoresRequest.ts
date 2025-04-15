@@ -3,9 +3,6 @@ import handleError from "../services/ErrorService";
 import { type NuevoTiposSector } from "../types/FildsTypes";
 import { toast } from "react-toastify";
 
-
-
-
 export const obtenerSectorRequest = async () => {
   
   try {
