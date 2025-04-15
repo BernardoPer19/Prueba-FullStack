@@ -146,21 +146,102 @@ Backend/<br>
 
 ## 🛠️ Instalación y uso
 
-### Backend (Express)
+Sigue los pasos según el entorno del proyecto para levantar la app de forma local.
 
+### 1️⃣ Clonar el repositorio
+
+```bash
+git clone https://github.com/BernardoPer19/Prueba-FullStack.git
+cd repositorio
 ```
+
+> 📁 Asegúrate de tener las carpetas `frontend/` y `backend/` correctamente estructuradas en el proyecto local.
+
+---
+
+### 2️⃣ Levantar el backend (Express + Firebase)
+
+#### Requisitos:
+
+- Node.js instalado (versión recomendada: ≥ 18)
+
+#### Pasos:
+
+```bash
 cd backend
-npm install
-npm run dev
+npm install         # Instala las dependencias
+npm run dev         # Inicia el servidor en modo desarrollo (por defecto en el puerto 3000)
 ```
 
-### Frontned (React + Vite)
+> 🧩 El backend utiliza Express, Firebase como base de datos, Zod para validaciones y dotenv para configuración de variables si fuera necesario (aunque en este proyecto no se usa archivo `.env` por defecto).
+
+---
+
+### 3️⃣ Levantar el frontend (React + Vite)
+
+#### Requisitos:
+
+- Node.js instalado (versión recomendada: ≥ 18)
+
+#### Pasos:
 
 ```bash
 cd frontend
-npm install
-npm run dev
+npm install         # Instala las dependencias
+npm run dev         # Inicia el servidor de desarrollo en http://localhost:5173
 ```
+
+> 💡 El frontend está desarrollado con React, TypeScript, Vite, Tailwind CSS, Axios, ContextAPI y React Hook Form para validación de formularios.
+
+---
+
+### ✅ Verificación del correcto funcionamiento
+
+- Una vez levantado el backend y el frontend, abre tu navegador en `http://localhost:5173`.
+- Prueba registrar un nuevo sector desde el formulario y verifica si se visualiza en la tabla en tiempo real.
+- Luego, dirigite a la sección de **validación de ubicación actual del usuario** para verificar si estás dentro de algún sector activo.
+
+> ⚠️⚠️⚠️ Si estás usando una computadora de escritorio, **no olvides configurar manualmente tu ubicación en las herramientas de desarrollo del navegador**. Consulta la siguiente sección para más detalles: ⚠️⚠️⚠️
+
+---
+
+## ⚠️⚠️ Importante: Configurar Ubicación en Herramientas de Desarrollo
+
+Si estás usando la aplicación desde una **PC de escritorio o laptop**, es posible que la detección automática de ubicación **no funcione correctamente** si no configuras manualmente la ubicación en las herramientas del navegador.
+
+Para evitar errores en la validación de sectores según la ubicación del usuario, debes seguir estos pasos:
+
+### 🧭 Cómo configurar la latitud y longitud desde el navegador (Google Chrome)
+
+1. Abre tu navegador en la sección que valida la ubicación del usuario.
+2. Presiona `F12` o haz clic derecho y selecciona **"Inspeccionar"** para abrir las herramientas de desarrollo.
+3. Ve a la pestaña **"Sensors"**. Si no aparece:
+   - Haz clic en los tres puntos (`⋮`) dentro del panel de herramientas.
+   - Luego selecciona `More tools > Sensors`.
+4. En la sección **Location**, selecciona **"Custom location..."**.
+5. Ingresa las coordenadas (`Latitude` y `Longitude`) del lugar que quieras simular.
+   - Ejemplo:
+     - `Latitude: -17.3895`
+     - `Longitude: -66.1568` (Cochabamba, Bolivia)
+
+> 💡 Esto es crucial para que la aplicación determine si estás dentro de un sector válido de entrega. Si no lo haces, la validación fallará por defecto.
+
+---
+
+### 📷 Ejemplo visual
+
+#### 1. Abre las DevTools (F12) y selecciona "Sensors"
+
+![Paso 1](./screenshots/sensors_step1.png)
+
+#### 2. Cambia la ubicación manualmente
+
+![Paso 2](./screenshots/sensors_step2.png)
+
+---
+
+> ❗ Esta configuración solo es necesaria en computadoras o entornos donde el navegador no puede acceder a tu GPS real.
+
 
 ## 🌐 APIs Externas Utilizadas
 
