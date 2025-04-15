@@ -2,7 +2,6 @@
 
 Aplicación fullstack para registrar zonas con servicio de delivery, consultar sectores activos y validar si un usuario está dentro del rango de cobertura y horario.
 
-⚠️ Aunque Firebase permite acceder directamente desde el frontend, decidí mantener todo el flujo pasando por el backend (GET y POST) para cumplir con la arquitectura fullstack de esta prueba.
 
 
 ---
@@ -170,9 +169,8 @@ npm run dev
 ## 🕐 Funcionalidades Pendientes o en Progreso
 
 - [ ] Filtrar sectores por horario de atención actual
-- [ ] Actualización en tiempo real con WebSockets o Firebase listeners (parcialmente hecho)
 - [ ] Mejorar diseño visual (en progreso)
-- [ ] Documentación completa (este README) con capturas y diagramas
+- [X] Documentación completa (este README) con capturas y diagramas
 - [ ] Despliegue en producción (Vercel + Render o Railway)
 
 ---
