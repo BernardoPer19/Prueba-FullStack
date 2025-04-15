@@ -9,6 +9,7 @@ export const SectorForm = () => {
     handleSubmit,
     formState: { errors },
     watch,
+    reset,
   } = useForm<NuevoTiposSector>();
   const { addSector } = useSectores();
 
@@ -16,18 +17,19 @@ export const SectorForm = () => {
     try {
       const response = await addSector(data);
       if (response?.mensaje) {
-        toast.success(response.mensaje); // Muestra el mensaje de éxito
+        toast.success(response.mensaje);
+        reset();
       }
     } catch (error) {
       console.error("Error completo:", error);
     }
   };
 
-  // Verificación de si la hora de inicio es anterior a la hora de fin
   const horarioInicio = watch("horario.inicio");
   const horarioFin = watch("horario.fin");
 
-  const validarHoras = horarioInicio && horarioFin && horarioInicio >= horarioFin;
+  const validarHoras =
+    horarioInicio !== "" && horarioFin !== "" && horarioInicio >= horarioFin;
 
   return (
     <form
@@ -88,7 +90,6 @@ export const SectorForm = () => {
         <p className="text-red-500 text-sm">{errors.lng?.message}</p>
       )}
 
-      {/* Horarios */}
       <div className="flex space-x-4">
         <input
           type="text"
@@ -103,7 +104,9 @@ export const SectorForm = () => {
           className="border p-2 w-full"
         />
         {errors.horario?.inicio && (
-          <p className="text-red-500 text-sm">{errors.horario.inicio?.message}</p>
+          <p className="text-red-500 text-sm">
+            {errors.horario.inicio?.message}
+          </p>
         )}
 
         <input
@@ -124,7 +127,9 @@ export const SectorForm = () => {
       </div>
 
       {validarHoras && (
-        <p className="text-red-500 text-sm">La hora de inicio no puede ser mayor que la de fin.</p>
+        <p className="text-red-500 text-sm">
+          La hora de inicio no puede ser mayor que la de fin.
+        </p>
       )}
 
       <button

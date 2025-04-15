@@ -8,7 +8,6 @@ export const obtenerSectorRequest = async () => {
     return response.data;
   } catch (error) {
     if (error instanceof AxiosError && error.response) {
-      // Aquí verificamos si el error tiene un mensaje adecuado
       const errorMessage =
         error.response.data?.error ||
         error.response.data?.message ||
