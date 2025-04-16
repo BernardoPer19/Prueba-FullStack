@@ -124,25 +124,6 @@ Backend/<br>
 - Manejo de estado global con ContextAPI
 - Diseño responsivo con Tailwind
 
----
-
-## 📊 Avance de Requisitos Técnicos
-
-| Funcionalidad                                 | Estado        |
-| --------------------------------------------- | ------------- |
-| Registrar sectores con horarios y coordenadas | ✅ Hecho      |
-| Guardar sectores en Firebase                  | ✅ Hecho      |
-| API RESTful con Express                       | ✅ Hecho      |
-| Formulario completo con validación            | ✅ Hecho      |
-| Autocompletado de direcciones                 | ✅ Parcial    |
-| Tabla de sectores en tiempo real              | ✅ Parcial    |
-| Validación de ubicación actual del usuario    | ✅ Hecho      |
-| Filtro por horario de atención                | ⛔ Pendiente  |
-| Diseño visual cuidado                         | ✅ Parcial    |
-| README claro y completo                       | ✅ (ahora sí) |
-| Despliegue público                            | ⛔ Pendiente  |
-
----
 
 ## 🛠️ Instalación y uso
 
@@ -214,11 +195,14 @@ npm run dev         # Inicia el servidor de desarrollo en http://localhost:5173
 - Prueba registrar un nuevo sector desde el formulario y verifica si se visualiza en la tabla en tiempo real.
 - Luego, dirigite a la sección de **validación de ubicación actual del usuario** para verificar si estás dentro de algún sector activo.
 
-> ⚠️⚠️⚠️ Si estás usando una computadora de escritorio, **no olvides configurar manualmente tu ubicación en las herramientas de desarrollo del navegador**. Consulta la siguiente sección para más detalles: ⚠️⚠️⚠️
+> ⚠️ Si estás usando una computadora de escritorio, **no olvides configurar manualmente tu ubicación en las herramientas de desarrollo del navegador**. Consulta la siguiente sección para más detalles:⚠️
 
 ---
 
-## ⚠️⚠️ Importante: Configurar Ubicación en Herramientas de Desarrollo
+<br>
+<br>
+
+## ⚠️Importante: Configurar Ubicación en Herramientas de Desarrollo
 
 Si estás usando la aplicación desde una **PC de escritorio o laptop**, es posible que la detección automática de ubicación **no funcione correctamente** si no configuras manualmente la ubicación en las herramientas del navegador.
 
@@ -252,26 +236,9 @@ Para evitar errores en la validación de sectores según la ubicación del usuar
 ![Paso 2](./screenshots/sensors_step2.png)
 
 ---
-
 > ❗ Esta configuración solo es necesaria en computadoras o entornos donde el navegador no puede acceder a tu GPS real.
 
 
-## 🌐 APIs Externas Utilizadas
-
-- **Firebase Firestore**  
-  Base de datos NoSQL para almacenar los sectores registrados.  
-  👉 [https://firebase.google.com/docs/firestore](https://firebase.google.com/docs/firestore)
-
----
-
-## 🕐 Funcionalidades Pendientes o en Progreso
-
-- [ ] Filtrar sectores por horario de atención actual
-- [ ] Mejorar diseño visual (en progreso)
-- [x] Documentación completa (este README) con capturas y diagramas
-- [ ] Despliegue en producción (Vercel + Render o Railway)
-
----
 
 ## 👤 Autor
 
