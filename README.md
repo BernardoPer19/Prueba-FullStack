@@ -1,6 +1,6 @@
 # Sistema de Domicilios por Sector
 
-Aplicación fullstack para registrar zonas con servicio de delivery, consultar sectores activos y validar si un usuario está dentro del rango de cobertura y horario.
+Aplicación fullstack para registrar zonas con servicio, consultar sectores activos y validar si un usuario está dentro del rango de cobertura y horario.
 
 ---
 
