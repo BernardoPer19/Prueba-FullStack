@@ -172,8 +172,16 @@ cd backend
 npm install         # Instala las dependencias
 npm run dev         # Inicia el servidor en modo desarrollo (por defecto en el puerto 3000)
 ```
+> 🧩 El backend utiliza **Express**, **Firebase** como base de datos, **Zod** para validaciones y **dotenv** para configuración de variables si fuera necesario  
+> _(aunque en este proyecto no se usa archivo `.env` por defecto)_.
 
-> 🧩 El backend utiliza Express, Firebase como base de datos, Zod para validaciones y dotenv para configuración de variables si fuera necesario (aunque en este proyecto no se usa archivo `.env` por defecto).
+---
+
+## 🔐 Acceso a Firebase
+
+Para garantizar la seguridad del proyecto, el archivo de credenciales de Firebase (`firebase.json`) **no está incluido en el repositorio**, ya que contiene claves privadas sensibles.  
+📩 **Te enviaré este archivo directamente por correo privado** junto con las instrucciones para ubicarlo correctamente en el proyecto:
+
 
 ---
 
