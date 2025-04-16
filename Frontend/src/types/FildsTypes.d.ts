@@ -5,12 +5,11 @@ export interface TiposSector {
   lat: number;
   lng: number;
   horario: {
-    inicio: string; 
-    fin: string;    
+    inicio: string;
+    fin: string;
   };
 }
 
-
-export type NuevoTiposSector = Omit<TiposSector, "id">
+export type NuevoTiposSector = Omit<TiposSector, "id">;
 
 type SectorConDistancia = TiposSector & { distanciaKm: number };

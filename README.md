@@ -164,7 +164,7 @@ Para garantizar la seguridad del proyecto, el archivo de credenciales de Firebas
 
 1. Descarga el archivo `firebase.json` que te enviaré por correo.
 2. Colócalo en la raíz del directorio `backend/`, así:<br>
-![Formulario](./screenshots/461shots_so.png)
+![BackendArquitecturaIdeal](./screenshots/BackendArquitectura.png)
 3. Asegúrate de que el archivo `.env` tenga la siguiente variable configurada:
 
 ```env
