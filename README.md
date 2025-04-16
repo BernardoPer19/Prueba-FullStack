@@ -162,13 +162,16 @@ npm run dev         # Inicia el servidor en modo desarrollo (por defecto en el p
 Para garantizar la seguridad del proyecto, el archivo de credenciales de Firebase (`firebase.json`) **no está incluido en el repositorio**, ya que contiene claves privadas sensibles.  
 📩 **Te enviaré este archivo directamente por correo privado** junto con las instrucciones para ubicarlo correctamente en el proyecto:
 
-1. Descarga el archivo `firebase.json` desde el correo.
-2. Colócalo en la raíz de la carpeta `backend/`.
-3. Asegúrate de que el archivo `.env` esté configurado correctamente con la variable `GOOGLE_APPLICATION_CREDENTIALS` apuntando al archivo `firebase.json`:
+1. Descarga el archivo `firebase.json` que te enviaré por correo.
+2. Colócalo en la raíz del directorio `backend/`, así:<br>
+![Formulario](./screenshots/461shots_so.png)
+3. Asegúrate de que el archivo `.env` tenga la siguiente variable configurada:
 
 ```env
-GOOGLE_APPLICATION_CREDENTIALS=./firebase.json
+GOOGLE_APPLICATION_CREDENTIALS=firebase.json
 ```
+4. Si no existe un archivo .env, renombra el archivo .env.example a .env:
+**.env.example ===>.env**
 ---
 
 ### 3️⃣ Levantar el frontend (React + Vite)
