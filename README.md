@@ -168,7 +168,7 @@ cd repositorio
 #### Pasos:
 
 ```bash
-cd backend
+cd Backend
 npm install         # Instala las dependencias
 npm run dev         # Inicia el servidor en modo desarrollo (por defecto en el puerto 3000)
 ```
@@ -199,7 +199,7 @@ GOOGLE_APPLICATION_CREDENTIALS=./firebase.json
 #### Pasos:
 
 ```bash
-cd frontend
+cd Frontend
 npm install         # Instala las dependencias
 npm run dev         # Inicia el servidor de desarrollo en http://localhost:5173
 ```
