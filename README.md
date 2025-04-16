@@ -172,9 +172,8 @@ cd backend
 npm install         # Instala las dependencias
 npm run dev         # Inicia el servidor en modo desarrollo (por defecto en el puerto 3000)
 ```
-> 🧩 El backend utiliza **Express**, **Firebase** como base de datos, **Zod** para validaciones y **dotenv** para configuración de variables si fuera necesario  
-> _(aunque en este proyecto no se usa archivo `.env` por defecto)_.
-
+>🧩 El backend utiliza Express, Firebase como base de datos, Zod para validaciones y dotenv para configuración de variables si fuera necesario
+>(aunque en este proyecto no se incluye el archivo .env por defecto, pero sí un .env.example de referencia).
 ---
 
 ## 🔐 Acceso a Firebase
@@ -182,7 +181,13 @@ npm run dev         # Inicia el servidor en modo desarrollo (por defecto en el p
 Para garantizar la seguridad del proyecto, el archivo de credenciales de Firebase (`firebase.json`) **no está incluido en el repositorio**, ya que contiene claves privadas sensibles.  
 📩 **Te enviaré este archivo directamente por correo privado** junto con las instrucciones para ubicarlo correctamente en el proyecto:
 
+1. Descarga el archivo `firebase.json` desde el correo.
+2. Colócalo en la raíz de la carpeta `backend/`.
+3. Asegúrate de que el archivo `.env` esté configurado correctamente con la variable `GOOGLE_APPLICATION_CREDENTIALS` apuntando al archivo `firebase.json`:
 
+```env
+GOOGLE_APPLICATION_CREDENTIALS=./firebase.json
+```
 ---
 
 ### 3️⃣ Levantar el frontend (React + Vite)
