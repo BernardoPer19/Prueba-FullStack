@@ -166,7 +166,7 @@ Para garantizar la seguridad del proyecto, el archivo de credenciales de Firebas
 2. Colócalo en la raíz del directorio `backend/`<br>
 3. Asegúrate de que el archivo `.env` tenga la siguiente variable configurada:
 ```env
-GOOGLE_APPLICATION_CREDENTIALS=firebase.json
+GOOGLE_APPLICATION_CREDENTIALS=./firebase.json
 ```
 4. Si no existe un archivo .env, renombra el archivo .env.example a .env:
 **.env.example ===>.env**
